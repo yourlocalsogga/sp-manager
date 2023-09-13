@@ -1,0 +1,13 @@
+set PREVIEW_MODE "STREETPASS MANAGER \nBy CR1T1C4- \ni mean Kosmon3DS \nNobody asked but wassup?"
+
+set ERRORMSG      "Failed to restore the SP Data :("
+
+ask "Restore SP Data from $[GM9OUT]?"
+set OUTPATH 1:/data/$[SYSID0]/sysdata/00010026/00000000
+
+filesel -d -x "What file you want to restore?" $[GM9OUT]/* COPYPATH
+cp -w $[COPYPATH] $[OUTPATH]
+
+fixcmac $[OUTPATH]
+
+echo "Streetpass data restored succefully:\n1:/data/<ID0>/sysdata/00010026/00000000"
